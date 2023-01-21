@@ -1,18 +1,5 @@
 # 🦧 Conclusion of section 1
 
-## Create server in node js
-example code
-```
-const http = require("http");
-
-const server = http.createServer((req, res) => {
-  ...
-})
-
-server.listen(3000)
-```
-
-## Write server response and other
 `` Write this code inside createServer ``
 | Name| Code | Description |
 | -   | - | - |
@@ -24,6 +11,18 @@ server.listen(3000)
 | Stop and showing the body response | res.end() | Always add this code in the end of your code |
 | Exit server | proccess.exit() | Exit and stop the service of server. you can not import module of process, process is global variable |
 | Request listener | req.on(STRING, FUNCTION) | example: `` req.on("data", (chunk) => { ... } ) `` | 
+
+## Create server in node js
+example code
+```
+const http = require("http");
+
+const server = http.createServer((req, res) => {
+  ...
+})
+
+server.listen(3000)
+```
 
 ## Make a simple route system in node js
 ``Note: enter this code inside the createServer``
