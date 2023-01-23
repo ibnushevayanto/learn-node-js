@@ -40,5 +40,12 @@ Set default file format for file and set default folder root for views, the code
 
 if you want to add custom layouts in handlebars add params like this
 ```
-
+app.engine(
+  "hbs",
+  expressHbs({
+    layoutsDir: "views/layouts",
+    defaultLayout: "main-layout",
+    extname: "hbs",
+  })
+);
 ```
