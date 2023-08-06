@@ -1,5 +1,6 @@
 const User = require("../models/user");
 const bcryptjs = require("bcryptjs");
+const nodemailer = require("nodemailer");
 
 class Auth {
   getLogin = (req, res, next) => {
@@ -60,7 +61,29 @@ class Auth {
       .then((encryptedPassword) => {
         User.create({ email, name, password: encryptedPassword }).then(
           (resultUser) => {
-            resultUser.createCart().then(() => res.redirect("/login"));
+            resultUser.createCart().then(() => {
+              const transporter = nodemailer.createTransport({
+                host: "smtp.ethereal.email",
+                port: 587,
+                name: 'ethereal.email',
+                secure: false, // true for 465, false for other ports
+                auth: {
+                  user: 'troy64@ethereal.email', // generated ethereal user
+                  pass: 'PAVGpWnVMKkyC9tsB7', // generated ethereal password
+                },
+              });
+              transporter
+                .sendMail({
+                  from: `"Troy Rath" <troy64@ethereal.email>`, // sender address
+                  to: email, // list of receivers
+                  subject: "Signup Success", // Subject line
+                  html: "<b>Success to signup</b>", // html body
+                })
+                .then((_) => {
+                  res.redirect("/login");
+                })
+                .catch((err) => console.error(err));
+            });
           }
         );
       })

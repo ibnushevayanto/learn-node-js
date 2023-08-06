@@ -82,9 +82,9 @@ User.hasMany(Order);
 Order.belongsToMany(Product, { through: OrderItem });
 
 sequelize
-  .sync({ force: true }) // * Overwrite the table, can remove all data in the table
-  // .sync()
+  // .sync({ force: true }) // * Overwrite the table, can remove all data in the table
+  .sync()
   .then(() => {
-    app.listen(3000);
+    app.listen(3001);
   })
   .catch((err) => console.error(err));

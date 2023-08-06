@@ -35,3 +35,6 @@ app.use((req, res, next) => {
   res.locals.csrfToken = req.csrfToken()
 }) 
 ```
+
+## Send The Email
+In this project i am use nodemailer for send the email, the code available in the auth controller
