@@ -1,10 +1,10 @@
 
-# 🦧 Catatan section 17 "Adding pagination"
+# 🦧 Catatan section 18 "Adding payments"
 
-Kunci dari pagination adalah limit dan offset dalam query data nya
+Menambahkan metode pembayaran menggunakan third party "stripe"
 
 ===
-## Code BE untuk membuat pagination berada disemua controller daftar product
+## Code BE ada di controller shop.js "controllers/shop.js"
 
-==
-## Code FE untuk membuat pagination berada di views/includes/pagination.ejs
+===
+## Code FE ada di checkout.ejs "views/show/checkout.ejs"
